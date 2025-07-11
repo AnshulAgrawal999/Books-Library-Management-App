@@ -30,7 +30,8 @@ export default booksSlice.reducer;
 export const fetchBooks = createAsyncThunk('books/fetchAll', async (_, { rejectWithValue }) => {
   try {
     const res = await api.get('/books');
-    return res.data;
+    // If the API returns { books: [...] }
+    return res.data.books || res.data;
   } catch (err) {
     return rejectWithValue(err.response?.data?.message || 'Failed to fetch books');
   }
