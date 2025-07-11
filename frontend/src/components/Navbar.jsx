@@ -1,20 +1,27 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { logoutUser } from '../features/auth/authSlice';
 
 const Navbar = () => {
-  // Placeholder for auth state
-  const isLoggedIn = false;
-  const userEmail = '';
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { user } = useSelector(state => state.auth);
+
+  const handleLogout = () => {
+    dispatch(logoutUser());
+    navigate('/');
+  };
 
   return (
     <nav style={{ padding: '1rem', borderBottom: '1px solid #ccc' }}>
       <span style={{ fontWeight: 'bold', marginRight: '2rem' }}>My Library</span>
       <Link to="/">Home</Link>
-      {isLoggedIn && <Link to="/mybooks" style={{ marginLeft: '1rem' }}>My Books</Link>}
-      {!isLoggedIn && <Link to="/login" style={{ marginLeft: '1rem' }}>Login</Link>}
-      {!isLoggedIn && <Link to="/register" style={{ marginLeft: '1rem' }}>Register</Link>}
-      {isLoggedIn && <span style={{ marginLeft: '1rem' }}>{userEmail}</span>}
-      {isLoggedIn && <button style={{ marginLeft: '1rem' }}>Logout</button>}
+      {user && <Link to="/mybooks" style={{ marginLeft: '1rem' }}>My Books</Link>}
+      {!user && <Link to="/login" style={{ marginLeft: '1rem' }}>Login</Link>}
+      {!user && <Link to="/register" style={{ marginLeft: '1rem' }}>Register</Link>}
+      {user && <span style={{ marginLeft: '1rem' }}>{user.email}</span>}
+      {user && <button style={{ marginLeft: '1rem' }} onClick={handleLogout}>Logout</button>}
     </nav>
   );
 };
