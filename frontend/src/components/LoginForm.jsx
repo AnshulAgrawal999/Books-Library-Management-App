@@ -10,16 +10,54 @@ const LoginForm = ({ onSubmit }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label>Email:</label>
-        <input type="email" value={email} onChange={e => setEmail(e.target.value)} required />
+    <form onSubmit={handleSubmit} style={{ maxWidth: '400px', margin: '0 auto' }}>
+      <div style={{ marginBottom: '16px' }}>
+        <label style={{ display: 'block', marginBottom: '8px', fontWeight: 'bold' }}>Email:</label>
+        <input 
+          type="email" 
+          value={email} 
+          onChange={e => setEmail(e.target.value)} 
+          required 
+          style={{
+            width: '100%',
+            padding: '12px',
+            borderRadius: '4px',
+            border: '1px solid #ddd',
+            fontSize: '16px'
+          }}
+        />
       </div>
-      <div>
-        <label>Password:</label>
-        <input type="password" value={password} onChange={e => setPassword(e.target.value)} required />
+      <div style={{ marginBottom: '24px' }}>
+        <label style={{ display: 'block', marginBottom: '8px', fontWeight: 'bold' }}>Password:</label>
+        <input 
+          type="password" 
+          value={password} 
+          onChange={e => setPassword(e.target.value)} 
+          required 
+          style={{
+            width: '100%',
+            padding: '12px',
+            borderRadius: '4px',
+            border: '1px solid #ddd',
+            fontSize: '16px'
+          }}
+        />
       </div>
-      <button type="submit">Login</button>
+      <button 
+        type="submit"
+        style={{
+          width: '100%',
+          backgroundColor: '#007bff',
+          color: 'white',
+          border: 'none',
+          padding: '12px',
+          borderRadius: '4px',
+          cursor: 'pointer',
+          fontSize: '16px'
+        }}
+      >
+        Login
+      </button>
     </form>
   );
 };

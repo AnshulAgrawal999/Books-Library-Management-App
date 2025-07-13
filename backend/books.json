@@ -11,6 +11,30 @@
       "author": "Robert C. Martin",
       "coverImage": "https://placehold.co/300x300/3498DB/FFFFFF?text=Clean+Code",
       "availability": true
+    },
+    {
+      "title": "Design Patterns",
+      "author": "Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides",
+      "coverImage": "https://placehold.co/300x300/9B59B6/FFFFFF?text=Design+Patterns",
+      "availability": true
+    },
+    {
+      "title": "Refactoring",
+      "author": "Martin Fowler",
+      "coverImage": "https://placehold.co/300x300/E74C3C/FFFFFF?text=Refactoring",
+      "availability": true
+    },
+    {
+      "title": "The Clean Coder",
+      "author": "Robert C. Martin",
+      "coverImage": "https://placehold.co/300x300/F39C12/FFFFFF?text=The+Clean+Coder",
+      "availability": true
+    },
+    {
+      "title": "Code Complete",
+      "author": "Steve McConnell",
+      "coverImage": "https://placehold.co/300x300/1ABC9C/FFFFFF?text=Code+Complete",
+      "availability": true
     }
   ]
 }

@@ -27,14 +27,20 @@ const Home = () => {
   if (error) return <div>Error: {error}</div>;
 
   return (
-    <div>
-      <h2>Book List</h2>
+    <div style={{ padding: '20px' }}>
+      <h2 style={{ marginBottom: '20px' }}>Book List</h2>
       {booksArray.length === 0 ? (
         <div>No books found.</div>
       ) : (
-        booksArray.map(book => (
-          <BookCard key={book._id} book={book} onWantToRead={handleWantToRead} />
-        ))
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
+          gap: '20px'
+        }}>
+          {booksArray.map(book => (
+            <BookCard key={book._id} book={book} onWantToRead={handleWantToRead} />
+          ))}
+        </div>
       )}
     </div>
   );

@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -8,9 +8,17 @@ import Home from './pages/Home';
 import MyBooks from './pages/MyBooks';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import { useDispatch } from 'react-redux';
+import { fetchCurrentUser } from './features/auth/authSlice';
 
 function App() {
   const [count, setCount] = useState(0)
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    // Check if user is already logged in on app load
+    dispatch(fetchCurrentUser());
+  }, [dispatch]);
 
   return (
     <Router>

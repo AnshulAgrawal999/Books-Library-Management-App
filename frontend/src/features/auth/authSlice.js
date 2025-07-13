@@ -10,7 +10,7 @@ const initialState = {
 export const registerUser = createAsyncThunk('auth/register', async (data, { rejectWithValue }) => {
   try {
     const res = await api.post('/auth/register', data);
-    return res.data;
+    return res.data.user; // Extract user from response
   } catch (err) {
     return rejectWithValue(err.response?.data?.message || 'Register failed');
   }
@@ -19,7 +19,7 @@ export const registerUser = createAsyncThunk('auth/register', async (data, { rej
 export const loginUser = createAsyncThunk('auth/login', async (data, { rejectWithValue }) => {
   try {
     const res = await api.post('/auth/login', data);
-    return res.data;
+    return res.data.user; // Extract user from response
   } catch (err) {
     return rejectWithValue(err.response?.data?.message || 'Login failed');
   }
@@ -28,7 +28,7 @@ export const loginUser = createAsyncThunk('auth/login', async (data, { rejectWit
 export const fetchCurrentUser = createAsyncThunk('auth/me', async (_, { rejectWithValue }) => {
   try {
     const res = await api.get('/auth/me');
-    return res.data;
+    return res.data.user; // Extract user from response
   } catch (err) {
     return rejectWithValue(null);
   }
