@@ -1,40 +1,152 @@
-{
-  "books": [
-    {
-      "title": "The Pragmatic Programmer",
-      "author": "Andrew Hunt & David Thomas",
-      "coverImage": "https://placehold.co/300x300/FF5733/FFFFFF?text=The+Pragmatic+Programmer",
-      "availability": true
-    },
-    {
-      "title": "Clean Code",
-      "author": "Robert C. Martin",
-      "coverImage": "https://placehold.co/300x300/3498DB/FFFFFF?text=Clean+Code",
-      "availability": true
-    },
-    {
-      "title": "Design Patterns",
-      "author": "Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides",
-      "coverImage": "https://placehold.co/300x300/9B59B6/FFFFFF?text=Design+Patterns",
-      "availability": true
-    },
-    {
-      "title": "Refactoring",
-      "author": "Martin Fowler",
-      "coverImage": "https://placehold.co/300x300/E74C3C/FFFFFF?text=Refactoring",
-      "availability": true
-    },
-    {
-      "title": "The Clean Coder",
-      "author": "Robert C. Martin",
-      "coverImage": "https://placehold.co/300x300/F39C12/FFFFFF?text=The+Clean+Coder",
-      "availability": true
-    },
-    {
-      "title": "Code Complete",
-      "author": "Steve McConnell",
-      "coverImage": "https://placehold.co/300x300/1ABC9C/FFFFFF?text=Code+Complete",
-      "availability": true
-    }
-  ]
-}
+[
+  {
+    "title": "The Pragmatic Programmer",
+    "author": "Andrew Hunt & David Thomas",
+    "coverImage": "https://placehold.co/300x300/FF5733/FFFFFF?text=The+Pragmatic+Programmer",
+    "availability": true
+  },
+  {
+    "title": "Clean Code",
+    "author": "Robert C. Martin",
+    "coverImage": "https://placehold.co/300x300/3498DB/FFFFFF?text=Clean+Code",
+    "availability": true
+  },
+  {
+    "title": "Design Patterns",
+    "author": "Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides",
+    "coverImage": "https://placehold.co/300x300/9B59B6/FFFFFF?text=Design+Patterns",
+    "availability": true
+  },
+  {
+    "title": "Refactoring",
+    "author": "Martin Fowler",
+    "coverImage": "https://placehold.co/300x300/E74C3C/FFFFFF?text=Refactoring",
+    "availability": true
+  },
+  {
+    "title": "The Clean Coder",
+    "author": "Robert C. Martin",
+    "coverImage": "https://placehold.co/300x300/F39C12/FFFFFF?text=The+Clean+Coder",
+    "availability": true
+  },
+  {
+    "title": "Code Complete",
+    "author": "Steve McConnell",
+    "coverImage": "https://placehold.co/300x300/1ABC9C/FFFFFF?text=Code+Complete",
+    "availability": true
+  },
+  {
+    "title": "The Mythical Man‑Month",
+    "author": "Frederick P. Brooks Jr.",
+    "coverImage": "https://placehold.co/300x300/8E44AD/FFFFFF?text=The+Mythical+Man‑Month",
+    "availability": true
+  },
+  {
+    "title": "Introduction to Algorithms",
+    "author": "Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest & Clifford Stein",
+    "coverImage": "https://placehold.co/300x300/27AE60/FFFFFF?text=Introduction+to+Algorithms",
+    "availability": true
+  },
+  {
+    "title": "Structure and Interpretation of Computer Programs",
+    "author": "Harold Abelson & Gerald Jay Sussman",
+    "coverImage": "https://placehold.co/300x300/2980B9/FFFFFF?text=SICP",
+    "availability": true
+  },
+  {
+    "title": "The C Programming Language",
+    "author": "Brian W. Kernighan & Dennis M. Ritchie",
+    "coverImage": "https://placehold.co/300x300/C0392B/FFFFFF?text=The+C+Programming+Language",
+    "availability": true
+  },
+  {
+    "title": "Compilers: Principles, Techniques & Tools",
+    "author": "Alfred V. Aho, Monica S. Lam, Ravi Sethi & Jeffrey D. Ullman",
+    "coverImage": "https://placehold.co/300x300/16A085/FFFFFF?text=Compilers+Dragon+Book",
+    "availability": true
+  },
+  {
+    "title": "Test‑Driven Development by Example",
+    "author": "Kent Beck",
+    "coverImage": "https://placehold.co/300x300/2C3E50/FFFFFF?text=TDD+by+Example",
+    "availability": true
+  },
+  {
+    "title": "Domain‑Driven Design",
+    "author": "Eric Evans",
+    "coverImage": "https://placehold.co/300x300/D35400/FFFFFF?text=Domain-Driven+Design",
+    "availability": true
+  },
+  {
+    "title": "Continuous Delivery",
+    "author": "Jez Humble & David Farley",
+    "coverImage": "https://placehold.co/300x300/7F8C8D/FFFFFF?text=Continuous+Delivery",
+    "availability": true
+  },
+  {
+    "title": "Building Microservices",
+    "author": "Sam Newman",
+    "coverImage": "https://placehold.co/300x300/2980B9/FFFFFF?text=Building+Microservices",
+    "availability": true
+  },
+  {
+    "title": "Designing Data‑Intensive Applications",
+    "author": "Martin Kleppmann",
+    "coverImage": "https://placehold.co/300x300/2ECC71/FFFFFF?text=Designing+Data‑Intensive+Apps",
+    "availability": true
+  },
+  {
+    "title": "Programming Pearls",
+    "author": "Jon Bentley",
+    "coverImage": "https://placehold.co/300x300/E67E22/FFFFFF?text=Programming+Pearls",
+    "availability": true
+  },
+  {
+    "title": "A Philosophy of Software Design",
+    "author": "John Ousterhout",
+    "coverImage": "https://placehold.co/300x300/9B59B6/FFFFFF?text=A+Philosophy+of+Software+Design",
+    "availability": true
+  },
+  {
+    "title": "Working Effectively with Legacy Code",
+    "author": "Michael Feathers",
+    "coverImage": "https://placehold.co/300x300/34495E/FFFFFF?text=Legacy+Code",
+    "availability": true
+  },
+  {
+    "title": "The DevOps Handbook",
+    "author": "Gene Kim, Jez Humble, Patrick Debois & John Willis",
+    "coverImage": "https://placehold.co/300x300/1ABC9C/FFFFFF?text=The+DevOps+Handbook",
+    "availability": true
+  },
+  {
+    "title": "The Phoenix Project",
+    "author": "Gene Kim, Kevin Behr & George Spafford",
+    "coverImage": "https://placehold.co/300x300/D35400/FFFFFF?text=The+Phoenix+Project",
+    "availability": true
+  },
+  {
+    "title": "Cracking the Coding Interview",
+    "author": "Gayle Laakmann McDowell",
+    "coverImage": "https://placehold.co/300x300/F1C40F/FFFFFF?text=Cracking+the+Coding+Interview",
+    "availability": true
+  },
+  {
+    "title": "The Art of Computer Programming",
+    "author": "Donald E. Knuth",
+    "coverImage": "https://placehold.co/300x300/8E44AD/FFFFFF?text=The+Art+of+Computer+Programming",
+    "availability": true
+  },
+  {
+    "title": "Patterns of Enterprise Application Architecture",
+    "author": "Martin Fowler",
+    "coverImage": "https://placehold.co/300x300/3498DB/FFFFFF?text=Enterprise+App+Architecture",
+    "availability": true
+  },
+  {
+    "title": "Peopleware",
+    "author": "Tom DeMarco & Timothy Lister",
+    "coverImage": "https://placehold.co/300x300/27AE60/FFFFFF?text=Peopleware",
+    "availability": true
+  }
+]
