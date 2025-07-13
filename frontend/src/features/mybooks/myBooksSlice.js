@@ -80,12 +80,12 @@ const myBooksSlice = createSlice({
       .addCase(addBookToMyBooks.fulfilled, (state, action) => { state.myBooks.push(action.payload); })
       .addCase(updateBookStatus.fulfilled, (state, action) => {
         const { bookId, status } = action.payload;
-        const book = state.myBooks.find(b => b.bookId === bookId);
+        const book = state.myBooks.find(b => b.bookId && b.bookId._id === bookId);
         if (book) book.status = status;
       })
       .addCase(updateBookRating.fulfilled, (state, action) => {
         const { bookId, rating } = action.payload;
-        const book = state.myBooks.find(b => b.bookId === bookId);
+        const book = state.myBooks.find(b => b.bookId && b.bookId._id === bookId);
         if (book) book.rating = rating;
       });
   },
