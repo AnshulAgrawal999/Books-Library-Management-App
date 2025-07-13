@@ -1,26 +1,24 @@
 import React, { useEffect } from 'react';
 
-const Toast = ({ message, type = 'success', onClose, duration = 3000 }) => {
+const Toast = ({ id, message, type = 'success', onClose, duration = 3000 }) => {
   useEffect(() => {
     const timer = setTimeout(() => {
-      onClose();
+      onClose(id);
     }, duration);
 
     return () => clearTimeout(timer);
-  }, [onClose, duration]);
+  }, [onClose, duration, id]);
 
   const getToastStyle = () => {
     const baseStyle = {
-      position: 'fixed',
-      top: '20px',
-      right: '20px',
       padding: '12px 20px',
       borderRadius: '4px',
       color: 'white',
       fontWeight: 'bold',
-      zIndex: 1000,
       boxShadow: '0 2px 8px rgba(0,0,0,0.2)',
-      animation: 'slideIn 0.3s ease-out'
+      animation: 'slideIn 0.3s ease-out',
+      marginBottom: '8px',
+      minWidth: '300px'
     };
 
     if (type === 'success') {
@@ -36,7 +34,7 @@ const Toast = ({ message, type = 'success', onClose, duration = 3000 }) => {
     <div style={getToastStyle()}>
       {message}
       <button
-        onClick={onClose}
+        onClick={() => onClose(id)}
         style={{
           background: 'none',
           border: 'none',

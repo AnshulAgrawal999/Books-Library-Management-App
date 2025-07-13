@@ -1,11 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  toast: {
-    show: false,
-    message: '',
-    type: 'success'
-  }
+  toasts: [] // Array of toasts instead of single toast
 };
 
 const uiSlice = createSlice({
@@ -13,17 +9,23 @@ const uiSlice = createSlice({
   initialState,
   reducers: {
     showToast: (state, action) => {
-      state.toast = {
-        show: true,
+      const newToast = {
+        id: Date.now() + Math.random(), // Unique ID for each toast
         message: action.payload.message,
-        type: action.payload.type || 'success'
+        type: action.payload.type || 'success',
+        timestamp: Date.now()
       };
+      state.toasts.push(newToast);
     },
-    hideToast: (state) => {
-      state.toast.show = false;
+    hideToast: (state, action) => {
+      const toastId = action.payload;
+      state.toasts = state.toasts.filter(toast => toast.id !== toastId);
+    },
+    clearAllToasts: (state) => {
+      state.toasts = [];
     }
   }
 });
 
-export const { showToast, hideToast } = uiSlice.actions;
+export const { showToast, hideToast, clearAllToasts } = uiSlice.actions;
 export default uiSlice.reducer; 
