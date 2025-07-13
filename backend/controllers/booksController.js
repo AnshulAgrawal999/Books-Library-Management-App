@@ -1,4 +1,13 @@
+
+
 exports.getAllBooks = async (req, res) => {
-  // TODO: Implement fetching all books
-  res.send('Get all books endpoint');
+  try {
+    let books = await Book.find();
+    if (books.length === 0) {
+      return res.status(404).json({ message: 'No books found' });
+    }
+    res.json(books);
+  } catch (err) {
+    res.status(500).json({ message: 'Server error', error: err.message });
+  }
 }; 
