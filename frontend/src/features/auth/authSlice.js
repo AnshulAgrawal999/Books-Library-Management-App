@@ -7,21 +7,27 @@ const initialState = {
   error: null,
 };
 
-export const registerUser = createAsyncThunk('auth/register', async (data, { rejectWithValue }) => {
+export const registerUser = createAsyncThunk('auth/register', async (data, { rejectWithValue, dispatch }) => {
   try {
     const res = await api.post('/auth/register', data);
+    dispatch({ type: 'ui/showToast', payload: { message: 'Registration successful!', type: 'success' } });
     return res.data.user; // Extract user from response
   } catch (err) {
-    return rejectWithValue(err.response?.data?.message || 'Register failed');
+    const errorMessage = err.response?.data?.message || 'Register failed';
+    dispatch({ type: 'ui/showToast', payload: { message: errorMessage, type: 'error' } });
+    return rejectWithValue(errorMessage);
   }
 });
 
-export const loginUser = createAsyncThunk('auth/login', async (data, { rejectWithValue }) => {
+export const loginUser = createAsyncThunk('auth/login', async (data, { rejectWithValue, dispatch }) => {
   try {
     const res = await api.post('/auth/login', data);
+    dispatch({ type: 'ui/showToast', payload: { message: 'Login successful!', type: 'success' } });
     return res.data.user; // Extract user from response
   } catch (err) {
-    return rejectWithValue(err.response?.data?.message || 'Login failed');
+    const errorMessage = err.response?.data?.message || 'Login failed';
+    dispatch({ type: 'ui/showToast', payload: { message: errorMessage, type: 'error' } });
+    return rejectWithValue(errorMessage);
   }
 });
 
@@ -34,12 +40,15 @@ export const fetchCurrentUser = createAsyncThunk('auth/me', async (_, { rejectWi
   }
 });
 
-export const logoutUser = createAsyncThunk('auth/logout', async (_, { rejectWithValue }) => {
+export const logoutUser = createAsyncThunk('auth/logout', async (_, { rejectWithValue, dispatch }) => {
   try {
     await api.get('/auth/logout');
+    dispatch({ type: 'ui/showToast', payload: { message: 'Logged out successfully!', type: 'success' } });
     return null;
   } catch (err) {
-    return rejectWithValue('Logout failed');
+    const errorMessage = 'Logout failed';
+    dispatch({ type: 'ui/showToast', payload: { message: errorMessage, type: 'error' } });
+    return rejectWithValue(errorMessage);
   }
 });
 

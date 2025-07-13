@@ -16,30 +16,41 @@ export const fetchMyBooks = createAsyncThunk('mybooks/fetch', async (_, { reject
   }
 });
 
-export const addBookToMyBooks = createAsyncThunk('mybooks/add', async (bookId, { rejectWithValue }) => {
+export const addBookToMyBooks = createAsyncThunk('mybooks/add', async (bookId, { rejectWithValue, dispatch }) => {
   try {
     const res = await api.post(`/mybooks/${bookId}`);
+    // Show success toast
+    dispatch({ type: 'ui/showToast', payload: { message: 'Book added to your list!', type: 'success' } });
     return res.data;
   } catch (err) {
-    return rejectWithValue(err.response?.data?.message || 'Failed to add book');
+    const errorMessage = err.response?.data?.message || 'Failed to add book';
+    dispatch({ type: 'ui/showToast', payload: { message: errorMessage, type: 'error' } });
+    return rejectWithValue(errorMessage);
   }
 });
 
-export const updateBookStatus = createAsyncThunk('mybooks/updateStatus', async ({ bookId, status }, { rejectWithValue }) => {
+export const updateBookStatus = createAsyncThunk('mybooks/updateStatus', async ({ bookId, status }, { rejectWithValue, dispatch }) => {
   try {
     const res = await api.patch(`/mybooks/${bookId}/status`, { status });
+    dispatch({ type: 'ui/showToast', payload: { message: `Status updated to "${status}"`, type: 'success' } });
     return { bookId, status };
   } catch (err) {
-    return rejectWithValue(err.response?.data?.message || 'Failed to update status');
+    const errorMessage = err.response?.data?.message || 'Failed to update status';
+    dispatch({ type: 'ui/showToast', payload: { message: errorMessage, type: 'error' } });
+    return rejectWithValue(errorMessage);
   }
 });
 
-export const updateBookRating = createAsyncThunk('mybooks/updateRating', async ({ bookId, rating }, { rejectWithValue }) => {
+export const updateBookRating = createAsyncThunk('mybooks/updateRating', async ({ bookId, rating }, { rejectWithValue, dispatch }) => {
   try {
     const res = await api.patch(`/mybooks/${bookId}/rating`, { rating });
+    const ratingText = rating === 0 ? 'No rating' : `${rating} star${rating > 1 ? 's' : ''}`;
+    dispatch({ type: 'ui/showToast', payload: { message: `Rating updated to ${ratingText}`, type: 'success' } });
     return { bookId, rating };
   } catch (err) {
-    return rejectWithValue(err.response?.data?.message || 'Failed to update rating');
+    const errorMessage = err.response?.data?.message || 'Failed to update rating';
+    dispatch({ type: 'ui/showToast', payload: { message: errorMessage, type: 'error' } });
+    return rejectWithValue(errorMessage);
   }
 });
 

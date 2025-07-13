@@ -15,11 +15,19 @@ const MyBooks = () => {
   }, [dispatch, user]);
 
   const handleStatusChange = (book, status) => {
-    dispatch(updateBookStatus({ bookId: book.bookId || book._id, status }));
+    // Find the myBook entry that contains this book
+    const myBookEntry = myBooks.find(myBook => myBook.bookId && myBook.bookId._id === book._id);
+    if (myBookEntry) {
+      dispatch(updateBookStatus({ bookId: book._id, status }));
+    }
   };
 
   const handleRatingChange = (book, rating) => {
-    dispatch(updateBookRating({ bookId: book.bookId || book._id, rating }));
+    // Find the myBook entry that contains this book
+    const myBookEntry = myBooks.find(myBook => myBook.bookId && myBook.bookId._id === book._id);
+    if (myBookEntry) {
+      dispatch(updateBookRating({ bookId: book._id, rating }));
+    }
   };
 
   if (!user) return <div>Please log in to view your books.</div>;
@@ -37,16 +45,32 @@ const MyBooks = () => {
           gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
           gap: '20px'
         }}>
-          {myBooks.map(myBook => (
-            <MyBookCard
-              key={myBook._id}
-              book={myBook.bookId} // The book details are nested in bookId
-              status={myBook.status || 'Want to Read'}
-              rating={myBook.rating || 0}
-              onStatusChange={handleStatusChange}
-              onRatingChange={handleRatingChange}
-            />
-          ))}
+          {myBooks.map(myBook => {
+            // Check if bookId exists and is populated
+            if (!myBook.bookId) {
+              return (
+                <div key={myBook._id} style={{ 
+                  border: '1px solid #ddd', 
+                  padding: '16px', 
+                  borderRadius: '8px',
+                  backgroundColor: '#f8f9fa'
+                }}>
+                  <p>Book data not available</p>
+                </div>
+              );
+            }
+            
+            return (
+              <MyBookCard
+                key={myBook._id}
+                book={myBook.bookId} // The book details are nested in bookId
+                status={myBook.status || 'Want to Read'}
+                rating={myBook.rating || 0}
+                onStatusChange={handleStatusChange}
+                onRatingChange={handleRatingChange}
+              />
+            );
+          })}
         </div>
       )}
     </div>
