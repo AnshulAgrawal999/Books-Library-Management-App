@@ -9,7 +9,7 @@ A simplified GoodReads clone built with the MERN stack (MongoDB, Express.js, Rea
 - **Personal Library**: Add books to "My Books" list
 - **Reading Progress**: Track reading status (Want to Read, Currently Reading, Read)
 - **Book Ratings**: Rate books from 1-5 stars
-- **Responsive Design**: Works on desktop and mobile devices
+- **Responsive Design**: Works on desktop, tablet and mobile devices
 
 ## Tech Stack
 
@@ -40,7 +40,7 @@ A simplified GoodReads clone built with the MERN stack (MongoDB, Express.js, Rea
 ### 1. Clone the repository
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/your-username/Books-Library-Management-App.git
 cd Books-Library-Management-App
 ```
 
@@ -52,6 +52,13 @@ npm install
 ```
 
 Create a `.env` file in the backend directory:
+
+> **Note:** A `.env.example` file is provided in the backend directory as a template for required environment variables.  
+> You can copy it to `.env` and update the values as needed:
+>
+> ```bash
+> cp .env.example .env
+> ```
 
 ```env
 MONGODB_URI=mongodb://localhost:27017/library-app
@@ -68,36 +75,49 @@ npm install
 
 ### 4. Database Setup
 
-```bash
-cd ../backend
-npm run seed
-```
-
-This will populate the database with sample books.
+- **Using MongoDB Compass**:  
+  1. Open MongoDB Compass and connect to your MongoDB server.
+  2. In the left sidebar, click "Create Database" and name it `library-app` (or use the name specified in your backend `.env` file).
+  3. Inside the new database, click "Create Collection" and name it `books`.
+  4. Select the `books` collection, then click the "Add Data" dropdown and choose "Import File".
+  5. In the import dialog, select `backend/books.json` as the file to import and set the file type to "JSON".
+  6. Click "Import" to add the sample book data to your database.
 
 ## Running the Application
 
-### 1. Start the Backend Server
+### 1. Start the Backend Development Server
 
 ```bash
 cd backend
 npm run dev
 ```
 
-The backend will run on `http://localhost:5000`
+The backend will run on `http://localhost:${PORT}`
+The backend will run on `http://localhost:5000` (or the port specified in your `.env` file)
 
-### 2. Start the Frontend Development Server
+The frontend will run on `http://localhost:5173` (default Vite port; this may differ if you change the port in your Vite config).
 
-```bash
-cd frontend
-npm run dev
-```
+**To change the frontend port:**  
 
-The frontend will run on `http://localhost:5173`
+1. Open `frontend/vite.config.js` (or `vite.config.ts` if using TypeScript).  
+
+2. Add or edit the `server` section as follows:
+
+   ```js
+   // vite.config.js
+   export default {
+     // ...other config
+     server: {
+       port: 5173 // Change this to your desired port
+     }
+   }
+   ```
+
+3. Save the file and restart the frontend server.
 
 ### 3. Access the Application
 
-Open your browser and navigate to `http://localhost:5173`
+Open your browser and navigate to `http://localhost:5173` (or the port specified in your Vite configuration)
 
 ## API Endpoints
 
@@ -129,7 +149,9 @@ Open your browser and navigate to `http://localhost:5173`
 
 ## Project Structure
 
-```bash
+You should use `text` as the language for this code block, since it is a directory/project structure tree and not source code.
+
+```text
 Books-Library-Management-App/
 ├── backend/
 │   ├── controllers/     # Business logic
@@ -137,7 +159,7 @@ Books-Library-Management-App/
 │   ├── models/          # MongoDB schemas
 │   ├── routes/          # API routes
 │   ├── books.json       # Sample data
-│   ├── seedBooks.js     # Database seeder
+│   ├── .env.example     # Example environment variables
 │   └── server.js        # Main server file
 ├── frontend/
 │   ├── src/
@@ -147,6 +169,7 @@ Books-Library-Management-App/
 │   │   ├── api/         # API configuration
 │   │   └── store.js     # Redux store
 │   └── package.json
+├── .gitignore           # Git ignore file
 └── README.md
 
 ```
