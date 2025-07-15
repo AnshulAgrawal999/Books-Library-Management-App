@@ -40,7 +40,7 @@ A simplified GoodReads clone built with the MERN stack (MongoDB, Express.js, Rea
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-username/Books-Library-Management-App.git
+git clone https://github.com/AnshulAgrawal999/Books-Library-Management-App.git
 cd Books-Library-Management-App
 ```
 
@@ -50,15 +50,6 @@ cd Books-Library-Management-App
 cd backend
 npm install
 ```
-
-Create a `.env` file in the backend directory:
-
-> **Note:** A `.env.example` file is provided in the backend directory as a template for required environment variables.  
-> You can copy it to `.env` and update the values as needed:
->
-> ```bash
-> cp .env.example .env
-> ```
 
 ```env
 MONGODB_URI=mongodb://localhost:27017/library-app
@@ -92,10 +83,20 @@ cd backend
 npm run dev
 ```
 
-The backend will run on `http://localhost:${PORT}`
-The backend will run on `http://localhost:5000` (or the port specified in your `.env` file)
+The backend will run on `http://localhost:5000` (or the port specified in your `.env` file).
 
-The frontend will run on `http://localhost:5173` (default Vite port; this may differ if you change the port in your Vite config).
+**To change the backend port:**  
+
+1. Open the `backend/.env` file.  
+2. Set the `PORT` variable to your desired port number, for example:  
+
+```env
+   PORT=4000
+```
+
+3. Save the file and restart the backend server.
+
+The frontend will run on `http://localhost:5173` (or the port specified in your Vite configuration).
 
 **To change the frontend port:**  
 
@@ -117,9 +118,11 @@ The frontend will run on `http://localhost:5173` (default Vite port; this may di
 
 ### 3. Access the Application
 
-Open your browser and navigate to `http://localhost:5173` (or the port specified in your Vite configuration)
+Open your browser and navigate to `http://localhost:5173` (or the port specified in your Vite configuration).
 
 ## API Endpoints
+
+> **Note:** Endpoints under "My Books" require authentication (user must be logged in).
 
 ### Authentication
 
@@ -147,10 +150,6 @@ Open your browser and navigate to `http://localhost:5173` (or the port specified
 4. **Manage Reading Progress**: Go to "My Books" to update status and ratings
 5. **Track Progress**: Monitor your reading journey with status and ratings
 
-## Project Structure
-
-You should use `text` as the language for this code block, since it is a directory/project structure tree and not source code.
-
 ```text
 Books-Library-Management-App/
 ├── backend/
@@ -175,6 +174,8 @@ Books-Library-Management-App/
 ```
 
 ## Contributing
+
+We welcome contributions! Please follow the coding standards used in this project (consistent formatting, descriptive commit messages, etc.).
 
 1. Fork the repository
 2. Create a feature branch
