@@ -94,7 +94,7 @@ The backend will run on `http://localhost:5000` (or the port specified in your `
    PORT=4000
 ```
 
-3. Save the file and restart the backend server.
+3.Save the file and restart the backend server.
 
 The frontend will run on `http://localhost:5173` (or the port specified in your Vite configuration).
 
